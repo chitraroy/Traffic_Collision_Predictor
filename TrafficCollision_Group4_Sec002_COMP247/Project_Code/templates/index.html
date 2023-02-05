@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Model Analysis</title>
+        
+        <link rel="stylesheet" href="{{url_for('static', filename='asPieProgress.css') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+    </head>
+
+    <body style="margin: 0px">
+        <div class="header">
+            <h3>Machine Learning Models - KSI Dataset
+        </div>
+        <div class="tabs">
+            <div id="prediction" class="tab" onclick="selectTab(1)">
+                MAKE PREDICTION
+            </div>
+            <div id="scores" class="tab"  onclick="selectTab(2)">
+                MODEL SCORES
+            </div>
+        </div>
+        <hr>
+        <h3>Choose the model</h3>
+        <div class="model">
+            
+            <div id="svm-model" class="rect"  onclick="selectModel(0)">
+                Support Vector Machine
+            </div>
+            <div id="rf-model" class="rect"  onclick="selectModel(1)">
+                Random Forest
+            </div>
+            <div id="nn-model" class="rect"  onclick="selectModel(2)">
+                Neural Network
+            </div>
+        </div>
+        <h3 id="graph-title">Displaying metrics for Neural Network</h3>
+        <div class="graph">
+            <div id="accuracy" class="pie_progress" role="progressbar" data-barcolor="#1171d7">
+                <div class="pie_progress__number">0%</div>
+                <div class="pie_progress__label">Accuracy</div>
+            </div>
+
+            <div id="precision" class="pie_progress" role="progressbar" data-barcolor="#1171d7">
+                <div class="pie_progress__number">0%</div>
+                <div class="pie_progress__label">Precision</div>
+            </div>
+
+            
+            <div id="recall" class="pie_progress" role="progressbar" data-barcolor="#1171d7">
+                <div class="pie_progress__number">0%</div>
+                <div class="pie_progress__label">Recall</div>
+            </div>
+
+            
+            <div id="f1_score" class="pie_progress" role="progressbar" data-barcolor="#1171d7">
+                <div class="pie_progress__number">0%</div>
+                <div class="pie_progress__label">f1 Score</div>
+            </div>
+        </div>
+
+        <div class="form">
+            <div class="form-header">
+                <h4 id="form-title">Neural Network</h4>
+                <p id="recovered">Predicted Outptut</p>
+            </div>
+
+            <form id="form">
+             
+            </form>
+            <div class="row">
+               <button onclick="predict()">Predict</button>
+            </div>
+        </div>
+
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>        
+        <script src="{{ url_for('static', filename = 'jquery-asPieProgress.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'index.js') }}"></script>
+        
+
+
+    </body>
+
+
+</html>
